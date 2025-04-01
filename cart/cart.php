@@ -20,6 +20,12 @@ $result = mysqli_query($conn, "SELECT cart.*, products.name, products.price FROM
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="../style.css">  
+    <style>
+        .cart-container h2 {
+            padding-bottom: 50px;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -27,6 +33,8 @@ $result = mysqli_query($conn, "SELECT cart.*, products.name, products.price FROM
  <nav>
     <a href="../index.php">Home</a> 
     <a href="../products.php">Products</a> 
+    <a href="../about.php">About Us</a>
+    <a href="../contact.php">Contact</a>
     <?php if (isset($_SESSION['user_id'])): ?>
         <a href="cart.php">Cart</a> 
         <a href="../auth/logout.php">Logout</a> 
@@ -60,10 +68,15 @@ $result = mysqli_query($conn, "SELECT cart.*, products.name, products.price FROM
         <?php endwhile; ?>
 
     </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
-
-
-
+<br><br>
 <?php include "../footer.php"; ?>
 
 </body>
