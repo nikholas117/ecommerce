@@ -24,13 +24,29 @@ $result = mysqli_query($conn, "SELECT cart.*, products.name, products.price FROM
         .cart-container h2 {
             padding-bottom: 50px;
         }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #333;
+            color: white;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+            width: 97.5%;
+        }
+        
 
     </style>
 </head>
 <body>
 
-
- <nav>
+ <nav class="navbar">
     <a href="../index.php">Home</a> 
     <a href="../products.php">Products</a> 
     <a href="../about.php">About Us</a>
