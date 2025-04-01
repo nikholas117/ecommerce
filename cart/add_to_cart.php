@@ -2,7 +2,7 @@
 session_start();
 include "../db.php";
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit();
@@ -12,16 +12,15 @@ $user_id = $_SESSION['user_id'];
 
 // Check if the product ID is set in either GET or POST request
 if (isset($_GET['product_id']) || isset($_POST['product_id'])) {
-    // Get product_id from either GET or POST
+  
     $product_id = isset($_GET['product_id']) ? $_GET['product_id'] : $_POST['product_id'];
-    
-    // Validate product ID
+
     if (!is_numeric($product_id)) {
         echo "Invalid product ID.";
         exit();
     }
     
-    // Rest of your code remains the same...
+   
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
     $stmt->bind_param("i", $product_id);
     $stmt->execute();
@@ -45,7 +44,7 @@ if (isset($_GET['product_id']) || isset($_POST['product_id'])) {
         $result = $insert_stmt->execute();
         
         if ($result) {
-            // Redirect to the cart page
+          
             header("Location: ../cart/cart.php");
             exit();
         } else {
@@ -55,7 +54,6 @@ if (isset($_GET['product_id']) || isset($_POST['product_id'])) {
         echo "This product is already in your cart. <a href='../cart/cart.php'>View Cart</a>";
     }
 } else {
-    // No product ID specified, redirect to products page
     header("Location: ../cart/cart.php");
     exit();
 }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../db.php";  // Make sure db.php is included correctly
+include "../db.php"; 
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -8,13 +8,12 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];  // Get the logged-in user ID
+$user_id = $_SESSION['user_id'];  
 
-// Check if cart_id is set in the POST request
 if (isset($_POST['cart_id'])) {
     $cart_id = $_POST['cart_id'];
 
-    // Validate the cart_id (sanitize and check if it's numeric)
+   
     if (!is_numeric($cart_id)) {
         echo "Invalid cart ID.";
         exit();
@@ -25,7 +24,7 @@ if (isset($_POST['cart_id'])) {
 
     if ($delete_query) {
         echo "Product removed from cart.";
-        header("Location: ../cart/cart.php");  // Redirect to the cart page
+        header("Location: ../cart/cart.php");  
         exit();
     } else {
         echo "Error removing product from cart.";
